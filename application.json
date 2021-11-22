@@ -1,0 +1,2097 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 53,
+  "iteration": 1637554639000,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "panels": [
+        {
+          "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 0,
+            "y": 1
+          },
+          "id": 16,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sum (jira_issues{issue_type=~\"Epic|Story|Bug|Task|Sub-task\",project=~\"ATD\"}) by (issue_type, project)",
+              "interval": "",
+              "legendFormat": "{{issue_type}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Jira Issues",
+          "type": "stat"
+        },
+        {
+          "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 8,
+            "y": 1
+          },
+          "id": 17,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "count (jira_issues{status=~\"To Do|In Progress|Done\",project=~\"ATD\"}) by (status, project)",
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Status_Count",
+          "type": "stat"
+        },
+        {
+          "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 8,
+            "x": 16,
+            "y": 1
+          },
+          "id": 18,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "topk(3,sum(jira_issues{assignee!~\"None\", project=~\"ATD\"}) by(assignee, project))",
+              "interval": "",
+              "legendFormat": "{{assignee}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Status_Count",
+          "type": "stat"
+        }
+      ],
+      "title": "Jira",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 12,
+      "panels": [
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 0,
+            "y": 2
+          },
+          "id": 2,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "value"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "master",
+                "query": ""
+              },
+              "owner": "ascogit",
+              "queryType": "Commits",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "commits",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "count"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 4,
+            "y": 2
+          },
+          "id": 3,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "value"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "$branch",
+                "query": ""
+              },
+              "owner": "ascogit",
+              "queryType": "Tags",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "Tags",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "count"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 8,
+            "y": 2
+          },
+          "id": 4,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "$branch",
+                "query": ""
+              },
+              "owner": "ascogit",
+              "queryType": "Releases",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "Releases",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "count"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 12,
+            "y": 2
+          },
+          "id": 5,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "$branch",
+                "query": "",
+                "timeField": 1
+              },
+              "owner": "ascogit",
+              "queryType": "Pull_Requests",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "Pull Requests Created",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "count"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 16,
+            "y": 2
+          },
+          "id": 6,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "$branch",
+                "query": "is:open",
+                "timeField": 3
+              },
+              "owner": "ascogit",
+              "queryType": "Pull_Requests",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "Active Pull Requests",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "count"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "s"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 20,
+            "y": 2
+          },
+          "id": 7,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "value"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "$branch",
+                "query": "",
+                "timeField": 0
+              },
+              "owner": "ascogit",
+              "queryType": "Pull_Requests",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "PR average open time",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "mean"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 0,
+            "y": 7
+          },
+          "id": 8,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "$branch",
+                "query": "",
+                "timeField": 0
+              },
+              "owner": "ascogit",
+              "queryType": "Issues",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "Issues",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "count"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 4,
+            "y": 7
+          },
+          "id": 9,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "$branch",
+                "query": "is:open",
+                "timeField": 0
+              },
+              "owner": "ascogit",
+              "queryType": "Issues",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "Active Issues",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "count"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "GitHub",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "noValue": "0",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 8,
+            "y": 7
+          },
+          "id": 10,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "options": {
+                "gitRef": "$branch",
+                "query": "is:open",
+                "timeField": 0
+              },
+              "owner": "ascogit",
+              "queryType": "Issues",
+              "refId": "A",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "Issues Avg. Open Time (Closed issues)",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "mean"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        }
+      ],
+      "repeat": "repository",
+      "title": "GitHub",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 20,
+      "panels": [
+        {
+          "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "max": 100,
+              "min": 1,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "semi-dark-green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 24,
+            "x": 0,
+            "y": 3
+          },
+          "id": 24,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Sonar_Projects",
+              "url": "https://sonarcloud.io/summary/overall?id=ASCO.applications.app.hub"
+            }
+          ],
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "value_and_name"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "exemplar": true,
+              "expr": "sonar_bugs{key=~\"ASCO.applications.app.$applicationname$\"}",
+              "interval": "",
+              "legendFormat": "Bugs",
+              "refId": "A"
+            },
+            {
+              "exemplar": true,
+              "expr": "sonar_security_remediation_effort  {key=~\"ASCO.applications.app.$applicationname$\"}",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "security",
+              "refId": "B"
+            },
+            {
+              "exemplar": true,
+              "expr": "sonar_security_rating{key=~\"ASCO.applications.app.$applicationname$\"}",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "Rating",
+              "refId": "C"
+            },
+            {
+              "exemplar": true,
+              "expr": "sonar_duplicated_lines{key=~\"ASCO.applications.app.$applicationname$\"}        ",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "Duplications",
+              "refId": "D"
+            },
+            {
+              "exemplar": true,
+              "expr": "sonar_line_coverage{key=~\"ASCO.applications.app.$applicationname$\"}",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "lines_Coverage",
+              "refId": "E"
+            },
+            {
+              "exemplar": true,
+              "expr": "sonar_code_smells{key=~\"ASCO.applications.app.$applicationname$\"}  ",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "Code Smells",
+              "refId": "F"
+            }
+          ],
+          "title": "ASCO.applications.app.$applicationname",
+          "type": "stat"
+        }
+      ],
+      "repeat": "applicationname",
+      "title": "SonarCloud",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 54,
+      "panels": [],
+      "title": "CodeBuild",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 26,
+      "panels": [
+        {
+          "datasource": "${envi}",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 0,
+            "y": 10
+          },
+          "id": 28,
+          "links": [],
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "valueSize": 55
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "alias": "Build/Day",
+              "dimensions": {
+                "ProjectName": "sandbox-$applicationname-build"
+              },
+              "expression": "",
+              "id": "",
+              "matchExact": true,
+              "metricName": "Builds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "A",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total builds",
+          "transformations": [],
+          "type": "stat"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${envi}",
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 6,
+            "y": 10
+          },
+          "hiddenSeries": false,
+          "id": 30,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "AWS CodeBuild ",
+              "url": "https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1&projects-meta=eyJmIjp7InRleHQiOiIiLCJzaGFyZWQiOmZhbHNlfSwicyI6eyJwcm9wZXJ0eSI6IkxBU1RfTU9ESUZJRURfVElNRSIsImRpcmVjdGlvbiI6LTF9LCJuIjoyMCwiaSI6MH0"
+            }
+          ],
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.1.6",
+          "pointradius": 2,
+          "points": true,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Build Count",
+              "dimensions": {
+                "ProjectName": "sandbox-$applicationname-build"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "Builds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "A",
+              "region": "us-east-1",
+              "statistics": [
+                "SampleCount"
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Builds / Day",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "transformations": [],
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:29",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:30",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${envi}",
+          "description": "",
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 12,
+            "y": 10
+          },
+          "hiddenSeries": false,
+          "id": 32,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.1.6",
+          "pointradius": 2,
+          "points": true,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "$$hashKey": "object:113",
+              "alias": "Duration_Sum",
+              "color": "#37872D"
+            },
+            {
+              "$$hashKey": "object:121",
+              "alias": "Builds_Sum",
+              "color": "#8F3BB8"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "",
+              "dimensions": {
+                "ProjectName": "sandbox-$applicationname-build"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "Duration",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "refId": "A",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "dimensions": {
+                "ProjectName": "sandbox-$applicationname-build"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "Builds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "refId": "B",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Duration / Build",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:62",
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:63",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${envi}",
+          "fieldConfig": {
+            "defaults": {
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 18,
+            "y": 10
+          },
+          "hiddenSeries": false,
+          "id": 34,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.1.6",
+          "pointradius": 2,
+          "points": true,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "$$hashKey": "object:161",
+              "alias": "SucceededBuilds",
+              "color": "#37872D"
+            },
+            {
+              "$$hashKey": "object:169",
+              "alias": "FaliedBuilds",
+              "color": "#C4162A"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "SucceededBuilds",
+              "dimensions": {
+                "ProjectName": "sandbox-$applicationname-build"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "SucceededBuilds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "C",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "FaliedBuilds",
+              "dimensions": {
+                "ProjectName": "sandbox-$applicationname-build"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "FailedBuilds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "A",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Build Status",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "repeat": "applicationname",
+      "title": "${applicationname}-build ",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 40,
+      "panels": [
+        {
+          "datasource": "${envi}",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 0,
+            "y": 5
+          },
+          "id": 35,
+          "links": [],
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {},
+            "textMode": "auto"
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "alias": "Build/Day",
+              "dimensions": {
+                "ProjectName": "sandbox-${applicationname}-deploy-live-deploy"
+              },
+              "expression": "",
+              "id": "",
+              "matchExact": true,
+              "metricName": "Builds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "A",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total builds",
+          "transformations": [
+            {
+              "id": "reduce",
+              "options": {
+                "reducers": [
+                  "count"
+                ]
+              }
+            }
+          ],
+          "type": "stat"
+        },
+        {
+          "datasource": "${envi}",
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 2,
+                "pointSize": 6,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "always",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 6,
+            "y": 5
+          },
+          "id": 47,
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "AWS CodeBuild ",
+              "url": "https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1&projects-meta=eyJmIjp7InRleHQiOiIiLCJzaGFyZWQiOmZhbHNlfSwicyI6eyJwcm9wZXJ0eSI6IkxBU1RfTU9ESUZJRURfVElNRSIsImRpcmVjdGlvbiI6LTF9LCJuIjoyMCwiaSI6MH0"
+            }
+          ],
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single"
+            }
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "alias": "Build Count",
+              "dimensions": {
+                "ProjectName": "sandbox-${applicationname}-deploy-live-deploy"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "Builds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "A",
+              "region": "us-east-1",
+              "statistics": [
+                "SampleCount"
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Builds / Day",
+          "transformations": [],
+          "type": "timeseries"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${envi}",
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "unit": "s"
+            },
+            "overrides": []
+          },
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 12,
+            "y": 5
+          },
+          "hiddenSeries": false,
+          "id": 37,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.1.6",
+          "pointradius": 2,
+          "points": true,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "",
+              "dimensions": {
+                "ProjectName": "sandbox-${applicationname}-deploy-live-deploy"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "Duration",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "refId": "A",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "",
+              "dimensions": {
+                "ProjectName": "sandbox-${applicationname}-deploy-live-deploy"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "Builds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "refId": "B",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Duration / Build",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:238",
+              "format": "s",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:239",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${envi}",
+          "fieldConfig": {
+            "defaults": {
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 7,
+            "w": 6,
+            "x": 18,
+            "y": 5
+          },
+          "hiddenSeries": false,
+          "id": 38,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.1.6",
+          "pointradius": 2,
+          "points": true,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "$$hashKey": "object:161",
+              "alias": "SucceededBuilds",
+              "color": "#37872D"
+            },
+            {
+              "$$hashKey": "object:169",
+              "alias": "FaliedBuilds",
+              "color": "#C4162A"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "SucceededBuilds",
+              "dimensions": {
+                "ProjectName": "sandbox-${applicationname}-deploy-live-deploy"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "SucceededBuilds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "C",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            },
+            {
+              "alias": "FaliedBuilds",
+              "dimensions": {
+                "ProjectName": "sandbox-${applicationname}-deploy-live-deploy"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "matchExact": true,
+              "metricName": "FailedBuilds",
+              "namespace": "AWS/CodeBuild",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "A",
+              "region": "us-east-1",
+              "statistics": [
+                "Sum"
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Build Status",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "repeat": "applicationname",
+      "title": "${applicationname}-deploy-live-deploy",
+      "type": "row"
+    }
+  ],
+  "schemaVersion": 30,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": [
+            "ASCODev"
+          ],
+          "value": [
+            "ASCODev"
+          ]
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Envi",
+        "multi": true,
+        "name": "envi",
+        "options": [],
+        "query": "cloudwatch",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "storybook",
+          "value": "storybook"
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "ApplicationName",
+        "multi": false,
+        "name": "applicationname",
+        "options": [
+          {
+            "selected": false,
+            "text": "dashboard",
+            "value": "dashboard"
+          },
+          {
+            "selected": false,
+            "text": "hub",
+            "value": "hub"
+          },
+          {
+            "selected": false,
+            "text": "meeting-program-view",
+            "value": "meeting-program-view"
+          },
+          {
+            "selected": false,
+            "text": "meeting-registration",
+            "value": "meeting-registration"
+          },
+          {
+            "selected": false,
+            "text": "prototype",
+            "value": "prototype"
+          },
+          {
+            "selected": true,
+            "text": "storybook",
+            "value": "storybook"
+          }
+        ],
+        "query": "dashboard, hub, meeting-program-view, meeting-registration, prototype, storybook",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Demo ASCO Applications",
+  "uid": "AAHD9D57k",
+  "version": 31
+}
