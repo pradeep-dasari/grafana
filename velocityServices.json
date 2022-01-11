@@ -1,0 +1,2791 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 75,
+  "iteration": 1641890258849,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 8,
+            "x": 0,
+            "y": 1
+          },
+          "id": 16,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "text": {
+              "titleSize": 30,
+              "valueSize": 40
+            },
+            "textMode": "value_and_name"
+          },
+          "pluginVersion": "8.3.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{issue_type=~\"Epic\",project=~\"ADP\"}) by (issue_type, project)",
+              "interval": "",
+              "legendFormat": "{{issue_type}}",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{issue_type=~\"Story\",project=~\"ADP\"}) by (issue_type, project)",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "{{issue_type}}",
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum (jira_issues{issue_type=~\"Task\",project=~\"ADP\"}) by (issue_type, project)",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "{{issue_type}}",
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{issue_type=~\"Bug\",project=~\"ADP\"}) by (issue_type, project)",
+              "hide": false,
+              "interval": "",
+              "legendFormat": "{{issue_type}}",
+              "refId": "E"
+            }
+          ],
+          "title": "Jira Project Summary",
+          "transformations": [],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": [],
+              "noValue": "0"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 8,
+            "x": 8,
+            "y": 1
+          },
+          "id": 17,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "values": [
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single"
+            }
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"Open\",project=~\"ADP\"}) by (status, project)",
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"On Hold\",project=~\"ADP\"}) by (status, project)",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"Closed\",project=~\"ADP\"}) by (status, project)",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"Work Started\",project=~\"ADP\"}) by (status, project)",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "D"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"In QA\",project=~\"ADP\"}) by (status, project)",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "E"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"Back to Dev\",project=~\"ADP\"}) by (status, project)",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "F"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"Ready for Development\",project=~\"ADP\"}) by (status, project)",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "G"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"PM Review\",project=~\"ADP\"}) by (status, project)",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "H"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "sum(jira_issues{status=~\"Grooming\",project=~\"ADP\"}) by (status, project)",
+              "hide": false,
+              "instant": false,
+              "interval": "",
+              "legendFormat": "{{status}}",
+              "refId": "I"
+            }
+          ],
+          "title": "Issue Status",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 8,
+            "x": 16,
+            "y": 1
+          },
+          "id": 18,
+          "options": {
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "values": [
+                "value"
+              ]
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single"
+            }
+          },
+          "pluginVersion": "8.3.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "bmHuj5v7z"
+              },
+              "exemplar": true,
+              "expr": "topk(4,sum(jira_issues{assignee!~\"None\", status=~\"Open\", project=~\"ADP\"}) by (assignee, status))",
+              "interval": "",
+              "legendFormat": "{{assignee}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Top Assignees",
+          "transformations": [],
+          "type": "piechart"
+        }
+      ],
+      "title": "Jira",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 12,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-github-datasource",
+            "uid": "ELitHtDnz"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisLabel": "",
+                "axisPlacement": "left",
+                "axisSoftMin": 0,
+                "barAlignment": 1,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "stepAfter",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "log": 10,
+                  "type": "log"
+                },
+                "showPoints": "always",
+                "spanNulls": true,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byFrameRefID",
+                  "options": "A"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Commits"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 0,
+            "y": 2
+          },
+          "id": 2,
+          "options": {
+            "legend": {
+              "calcs": [
+                "sum"
+              ],
+              "displayMode": "list",
+              "placement": "bottom"
+            },
+            "tooltip": {
+              "mode": "single"
+            }
+          },
+          "pluginVersion": "8.3.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-github-datasource",
+                "uid": "ELitHtDnz"
+              },
+              "options": {
+                "gitRef": "main",
+                "query": ""
+              },
+              "owner": "ascogit",
+              "queryType": "Commits",
+              "refId": "A",
+              "repository": "ASCO.services"
+            }
+          ],
+          "title": "Commits",
+          "transformations": [
+            {
+              "id": "calculateField",
+              "options": {
+                "alias": "Commits",
+                "binary": {
+                  "left": "commited_at",
+                  "operator": "/",
+                  "reducer": "sum",
+                  "right": "author"
+                },
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [
+                    "id"
+                  ],
+                  "reducer": "count"
+                },
+                "replaceFields": false
+              }
+            },
+            {
+              "id": "filterByRefId",
+              "options": {
+                "include": ""
+              }
+            }
+          ],
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "grafana-github-datasource",
+            "uid": "ELitHtDnz"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "match": "true",
+                    "result": {
+                      "index": 0,
+                      "text": "demo"
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "noValue": "0",
+              "unit": "none"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "number"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Total Pull Requests"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byFrameRefID",
+                  "options": "B"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Active Pull Requests"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 8,
+            "y": 2
+          },
+          "id": 5,
+          "options": {
+            "displayLabels": [],
+            "legend": {
+              "displayMode": "table",
+              "placement": "right",
+              "values": [
+                "value"
+              ]
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "count"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "tooltip": {
+              "mode": "single"
+            }
+          },
+          "pluginVersion": "8.1.6",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-github-datasource",
+                "uid": "ELitHtDnz"
+              },
+              "options": {
+                "gitRef": "$branch",
+                "query": "",
+                "timeField": 1
+              },
+              "owner": "ascogit",
+              "queryType": "Pull_Requests",
+              "refId": "A",
+              "repository": "ASCO.services"
+            },
+            {
+              "datasource": {
+                "type": "grafana-github-datasource",
+                "uid": "ELitHtDnz"
+              },
+              "hide": false,
+              "options": {
+                "gitRef": "$branch",
+                "query": "is:open",
+                "timeField": 3
+              },
+              "owner": "ascogit",
+              "queryType": "Pull_Requests",
+              "refId": "B",
+              "repository": "ASCO.applications"
+            }
+          ],
+          "title": "Pull Requests Created",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "number"
+                  ]
+                }
+              }
+            }
+          ],
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-github-datasource",
+            "uid": "ELitHtDnz"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "center",
+                "displayMode": "color-text"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "name"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Names"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 16,
+            "y": 2
+          },
+          "id": 55,
+          "options": {
+            "footer": {
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "8.3.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-github-datasource",
+                "uid": "ELitHtDnz"
+              },
+              "options": {
+                "query": " "
+              },
+              "owner": "ascogit",
+              "queryType": "Contributors",
+              "refId": "A",
+              "repository": "ASCO.services"
+            }
+          ],
+          "title": "Top Contributors",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "name"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "filterByValue",
+              "options": {
+                "filters": [
+                  {
+                    "config": {
+                      "id": "notEqual",
+                      "options": {
+                        "value": ""
+                      }
+                    },
+                    "fieldName": "name"
+                  }
+                ],
+                "match": "all",
+                "type": "include"
+              }
+            },
+            {
+              "disabled": true,
+              "id": "calculateField",
+              "options": {
+                "alias": "Values",
+                "binary": {
+                  "left": "name",
+                  "operator": "+",
+                  "reducer": "sum",
+                  "right": "name"
+                },
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [],
+                  "reducer": "changeCount"
+                },
+                "replaceFields": false
+              }
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-github-datasource",
+            "uid": "ELitHtDnz"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "center",
+                "displayMode": "color-text",
+                "minWidth": 50
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "title"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width"
+                  },
+                  {
+                    "id": "displayName",
+                    "value": "Title"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "state"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Status"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "author_login"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "Author"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "number"
+                },
+                "properties": [
+                  {
+                    "id": "displayName",
+                    "value": "PR"
+                  },
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "merged_at"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "repository"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 215
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "PR"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 135
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Title"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 472
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Status"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 164
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Author"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 180
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 24,
+            "x": 0,
+            "y": 8
+          },
+          "id": 58,
+          "options": {
+            "footer": {
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": []
+          },
+          "pluginVersion": "8.3.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-github-datasource",
+                "uid": "ELitHtDnz"
+              },
+              "owner": "ascogit",
+              "queryType": "Pull_Requests",
+              "refId": "A",
+              "repository": "ASCO.services"
+            }
+          ],
+          "title": " PR Status",
+          "transformations": [
+            {
+              "id": "filterFieldsByName",
+              "options": {
+                "include": {
+                  "names": [
+                    "number",
+                    "title",
+                    "state",
+                    "author_login",
+                    "merged_at",
+                    "repository"
+                  ]
+                }
+              }
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "repeat": "repository",
+      "title": "GitHub",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 20,
+      "panels": [],
+      "repeat": "applicationname",
+      "title": "SonarCloud-ASCO.applications.app.$applicationname",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bmHuj5v7z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 25,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "dark-red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 3
+      },
+      "id": 24,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Sonar_Projects",
+          "url": "https://sonarcloud.io/summary/overall?id=ASCO.applications.app.hub"
+        }
+      ],
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "exemplar": true,
+          "expr": "sonar_bugs{key=~\"ASCO.services.$services\"}",
+          "interval": "",
+          "legendFormat": "Bugs",
+          "refId": "A"
+        }
+      ],
+      "title": "Bugs",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bmHuj5v7z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 15,
+          "min": 0,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 4
+              },
+              {
+                "color": "dark-red",
+                "value": 8
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 3
+      },
+      "id": 49,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "exemplar": true,
+          "expr": "sonar_security_hotspots{key=~\"ASCO.services.$services\"}",
+          "interval": "",
+          "legendFormat": "Security Hotspots",
+          "refId": "A"
+        }
+      ],
+      "title": "Security Hotspots",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bmHuj5v7z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 25,
+          "min": 0,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10
+              },
+              {
+                "color": "dark-red",
+                "value": 15
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 3
+      },
+      "id": 50,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "exemplar": true,
+          "expr": "sonar_new_vulnerabilities{key=~\"ASCO.services.$services\"}",
+          "interval": "",
+          "legendFormat": "vulnerabilities",
+          "refId": "A"
+        }
+      ],
+      "title": "Vulnerabilities",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bmHuj5v7z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 3
+      },
+      "id": 51,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "exemplar": true,
+          "expr": "sonar_duplicated_lines_density{key=~\"ASCO.services.$services\"} ",
+          "interval": "",
+          "legendFormat": "Duplications",
+          "refId": "A"
+        }
+      ],
+      "title": "Duplications",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bmHuj5v7z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "dark-yellow",
+                "value": 50
+              },
+              {
+                "color": "dark-green",
+                "value": 70
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 3
+      },
+      "id": 52,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "exemplar": false,
+          "expr": "sonar_coverage{key=~\"ASCO.services.$services\"}",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Line Coverage",
+          "refId": "A"
+        }
+      ],
+      "title": "Code Coverage",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "bmHuj5v7z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 3
+      },
+      "id": 53,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "exemplar": true,
+          "expr": "sonar_code_smells{key=~\"ASCO.services.$services\"}",
+          "interval": "",
+          "legendFormat": "Code Smells",
+          "refId": "A"
+        }
+      ],
+      "title": "Code Smells",
+      "type": "gauge"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 26,
+      "panels": [],
+      "repeat": "applicationname",
+      "title": "${envi}-${applicationname}-template",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 0,
+        "y": 8
+      },
+      "id": 28,
+      "links": [],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 55
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "alias": "Builds",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-templates"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Builds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Total builds",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SucceededBuilds"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#37872D",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.showPoints",
+                "value": "always"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FailedBuilds"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#C4162A",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.showPoints",
+                "value": "always"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total Builds"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "bars"
+              },
+              {
+                "id": "custom.showPoints",
+                "value": "always"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 11,
+        "x": 6,
+        "y": 8
+      },
+      "id": 34,
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.1.6",
+      "targets": [
+        {
+          "alias": "SucceededBuilds",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "S02UhS57z"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-templates"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "SucceededBuilds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "FailedBuilds",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "S02UhS57z"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-templates"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "FailedBuilds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "Total Builds",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "S02UhS57z"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-templates"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Builds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Build Status",
+      "transformations": [],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "left",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Duration_Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#37872D",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Builds_Sum"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#8F3BB8",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 17,
+        "y": 8
+      },
+      "id": 32,
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "hidden",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.1.6",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "S02UhS57z"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-templates"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Duration",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Duration / Build",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-text",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Commit ID"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 154
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ARN(Build Number)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 362
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 60,
+      "links": [],
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message, @logStream\n| filter @message like \"HEAD is now\"\n| sort @timestamp desc\n| limit 100",
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$services-templates"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "A",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp,@message \n| filter @message like \"HEAD is now\"\n| parse @message \"HEAD is now at * Merge pull request * *\" as id, id2, id3\n| sort @timestamp desc\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$services-templates"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "B",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$services-templates"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "C",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: PRE_BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$services-templates"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "D",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: POST_BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$services-templates"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "E",
+          "region": "us-east-1",
+          "statsGroups": []
+        }
+      ],
+      "title": "Build Associated PRs",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "A · @message": true,
+              "A · __log__grafana_internal__": true,
+              "A · __logstream__grafana_internal__": true,
+              "A · id": true,
+              "A · id2": true,
+              "A · id3": true,
+              "A · id4": true,
+              "A · id6": true,
+              "A · id7": true,
+              "A · id8": true,
+              "B · @message": true,
+              "B · __log__grafana_internal__": true,
+              "B · __logstream__grafana_internal__": true,
+              "B · count(*)": true,
+              "B · id": false,
+              "B · id2": false,
+              "B · id3": true,
+              "B · id4": true,
+              "B · id5": false,
+              "B · id6": true,
+              "B · id7": true,
+              "B · id8": true,
+              "C · @message": true,
+              "C · __log__grafana_internal__": true,
+              "C · __logstream__grafana_internal__": true,
+              "C · id": true,
+              "C · id2": true,
+              "C · id3": true,
+              "C · id4": true,
+              "C · id5": true,
+              "C · id6": true,
+              "C · id7": true,
+              "D · @message": true,
+              "D · __log__grafana_internal__": true,
+              "D · __logstream__grafana_internal__": true,
+              "D · id": true,
+              "D · id2": true,
+              "D · id3": true,
+              "D · id4": true,
+              "D · id5": true,
+              "D · id6": true,
+              "D · id7": true,
+              "E · @message": true,
+              "E · __log__grafana_internal__": true,
+              "E · __logstream__grafana_internal__": true,
+              "E · id": true,
+              "E · id2": true,
+              "E · id3": true,
+              "E · id4": true,
+              "E · id5": true,
+              "E · id6": true,
+              "E · id7": true,
+              "F · count(*)": true,
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "A · @logStream": "ARN(Build Number)",
+              "A · @message": "PR ID",
+              "A · id5": "Commit ID",
+              "A · id9": "Pull Request ID",
+              "B · @message": "",
+              "B · id": "Commit ID",
+              "B · id2": "PR ID",
+              "B · id3": "File Location",
+              "B · id5": "Commit ID",
+              "B · id7": "",
+              "B · id9": "PR ID",
+              "B · pipelineExecutionId": "Build ID",
+              "C · @message": "Build Status",
+              "C · id8": "Build Status",
+              "D · id8": "Pre Build Status",
+              "E · id8": "Post Build Status",
+              "F · pipelineExecutionId": "Build ID"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 40,
+      "panels": [],
+      "repeat": "applicationname",
+      "title": "${envi}-${applicationname}-deploy-promotion",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 0,
+        "y": 22
+      },
+      "id": 35,
+      "links": [],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 55
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "alias": "Build/Day",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-deploy-promotion"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Builds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Total Deployments",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SucceededBuilds"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#37872D",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.showPoints",
+                "value": "always"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FailedBuilds"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#C4162A",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.showPoints",
+                "value": "always"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total Builds"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "bars"
+              },
+              {
+                "id": "custom.showPoints",
+                "value": "always"
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 11,
+        "x": 6,
+        "y": 22
+      },
+      "id": 56,
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.1.6",
+      "targets": [
+        {
+          "alias": "SucceededBuilds",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-deploy-promotion"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "SucceededBuilds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "FailedBuilds",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-deploy-promotion"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "FailedBuilds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        },
+        {
+          "alias": "Total Builds",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-deploy-promotion"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Builds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "C",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "SampleCount"
+        }
+      ],
+      "title": "Deployment Status",
+      "transformations": [],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 7,
+        "x": 17,
+        "y": 22
+      },
+      "id": 37,
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "hidden",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "pluginVersion": "8.1.6",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "S02UhS57z"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$services-deploy-promotion"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Duration",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Duration / Deployment",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 33,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "dev",
+          "value": "dev"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Envi",
+        "multi": false,
+        "name": "envi",
+        "options": [],
+        "query": "cloudwatch",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "accountelasticsync",
+          "value": "accountelasticsync"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Services",
+        "multi": false,
+        "name": "services",
+        "options": [
+          {
+            "selected": true,
+            "text": "accountelasticsync",
+            "value": "accountelasticsync"
+          },
+          {
+            "selected": false,
+            "text": "content",
+            "value": "content"
+          },
+          {
+            "selected": false,
+            "text": "contentrepstream",
+            "value": "contentrepstream"
+          },
+          {
+            "selected": false,
+            "text": "dynamiccontent",
+            "value": "dynamiccontent"
+          },
+          {
+            "selected": false,
+            "text": "dynamo",
+            "value": "dynamo"
+          },
+          {
+            "selected": false,
+            "text": "embedfields",
+            "value": "embedfields"
+          },
+          {
+            "selected": false,
+            "text": "esconfigs",
+            "value": "esconfigs"
+          },
+          {
+            "selected": false,
+            "text": "helloworld",
+            "value": "helloworld"
+          },
+          {
+            "selected": false,
+            "text": "importsheridan",
+            "value": "importsheridan"
+          },
+          {
+            "selected": false,
+            "text": "importzoomorphix",
+            "value": "importzoomorphix"
+          },
+          {
+            "selected": false,
+            "text": "mdmvalidateaddress",
+            "value": "mdmvalidateaddress"
+          },
+          {
+            "selected": false,
+            "text": "meeting",
+            "value": "meeting"
+          },
+          {
+            "selected": false,
+            "text": "message",
+            "value": "message"
+          },
+          {
+            "selected": false,
+            "text": "pinnacleordersync",
+            "value": "pinnacleordersync"
+          },
+          {
+            "selected": false,
+            "text": "podcastprocessor",
+            "value": "podcastprocessor"
+          },
+          {
+            "selected": false,
+            "text": "productactivation",
+            "value": "productactivation"
+          },
+          {
+            "selected": false,
+            "text": "profile",
+            "value": "profile"
+          },
+          {
+            "selected": false,
+            "text": "surveymonkey",
+            "value": "surveymonkey"
+          },
+          {
+            "selected": false,
+            "text": "utiladdlookup",
+            "value": "utiladdlookup"
+          },
+          {
+            "selected": false,
+            "text": "validateaddress",
+            "value": "validateaddress"
+          },
+          {
+            "selected": false,
+            "text": "xmlparser",
+            "value": "xmlparser"
+          }
+        ],
+        "query": "accountelasticsync, content, contentrepstream, dynamiccontent, dynamo, embedfields, esconfigs, helloworld, importsheridan, importzoomorphix, mdmvalidateaddress, meeting, message, pinnacleordersync, podcastprocessor, productactivation, profile, surveymonkey, utiladdlookup, validateaddress, xmlparser",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-80d",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "15s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "ASCO Services Dashboard",
+  "uid": "hvV1hJhnk",
+  "version": 11,
+  "weekStart": ""
+}

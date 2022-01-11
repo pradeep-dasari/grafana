@@ -22,7 +22,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 71,
-  "iteration": 1639108445189,
+  "iteration": 1641887186197,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -69,6 +69,12 @@
         "y": 1
       },
       "id": 16,
+      "links": [
+        {
+          "title": "",
+          "url": "https://asco1.atlassian.net/jira/software/c/projects/ADP/issues"
+        }
+      ],
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -94,8 +100,9 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{issue_type=~\"Epic\",project=~\"ADP\"}) by (issue_type, project)",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{issue_type}}",
           "refId": "A"
@@ -105,9 +112,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{issue_type=~\"Story\",project=~\"ADP\"}) by (issue_type, project)",
           "hide": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{issue_type}}",
           "refId": "B"
@@ -117,9 +125,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum (jira_issues{issue_type=~\"Task\",project=~\"ADP\"}) by (issue_type, project)",
           "hide": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{issue_type}}",
           "refId": "C"
@@ -129,9 +138,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{issue_type=~\"Bug\",project=~\"ADP\"}) by (issue_type, project)",
           "hide": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{issue_type}}",
           "refId": "E"
@@ -198,9 +208,9 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
-          "expr": "sum(jira_issues{status=~\"Open\",project=~\"ADP\"}) by (status, project)",
-          "instant": false,
+          "exemplar": false,
+          "expr": "sum(jira_issues{status=~\"Open\",project=~\"ADP\" }) by (status, project) ",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "A"
@@ -210,10 +220,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{status=~\"On Hold\",project=~\"ADP\"}) by (status, project)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "B"
@@ -223,10 +233,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{status=~\"Closed\",project=~\"ADP\"}) by (status, project)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "C"
@@ -236,10 +246,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{status=~\"Work Started\",project=~\"ADP\"}) by (status, project)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "D"
@@ -249,10 +259,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{status=~\"In QA\",project=~\"ADP\"}) by (status, project)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "E"
@@ -262,10 +272,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{status=~\"Back to Dev\",project=~\"ADP\"}) by (status, project)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "F"
@@ -275,10 +285,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{status=~\"Ready for Development\",project=~\"ADP\"}) by (status, project)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "G"
@@ -288,10 +298,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{status=~\"PM Review\",project=~\"ADP\"}) by (status, project)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "H"
@@ -301,10 +311,10 @@
             "type": "prometheus",
             "uid": "bmHuj5v7z"
           },
-          "exemplar": true,
+          "exemplar": false,
           "expr": "sum(jira_issues{status=~\"Grooming\",project=~\"ADP\"}) by (status, project)",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{status}}",
           "refId": "I"
@@ -807,12 +817,204 @@
       "type": "table"
     },
     {
+      "datasource": {
+        "type": "grafana-github-datasource",
+        "uid": "ELitHtDnz"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-text",
+            "minWidth": 50
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "title"
+            },
+            "properties": [
+              {
+                "id": "custom.width"
+              },
+              {
+                "id": "displayName",
+                "value": "Title"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "state"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Status"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "author_login"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Author"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "PR"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "merged_at"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Title"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 843
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PR"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 79
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 117
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 59,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-github-datasource",
+            "uid": "ELitHtDnz"
+          },
+          "owner": "ascogit",
+          "queryType": "Pull_Requests",
+          "refId": "A",
+          "repository": "ASCO.applications"
+        }
+      ],
+      "title": " PR Status",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "number",
+                "title",
+                "state",
+                "author_login",
+                "merged_at"
+              ]
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 22
       },
       "id": 20,
       "panels": [],
@@ -857,7 +1059,7 @@
         "h": 4,
         "w": 4,
         "x": 0,
-        "y": 16
+        "y": 23
       },
       "id": 24,
       "links": [
@@ -915,7 +1117,7 @@
               },
               {
                 "color": "#EAB839",
-                "value": 4
+                "value": 5
               },
               {
                 "color": "dark-red",
@@ -930,7 +1132,7 @@
         "h": 4,
         "w": 4,
         "x": 4,
-        "y": 16
+        "y": 23
       },
       "id": 49,
       "options": {
@@ -949,14 +1151,19 @@
       "pluginVersion": "8.3.0",
       "targets": [
         {
-          "exemplar": true,
-          "expr": "sonar_security_remediation_effort  {key=~\"ASCO.applications.app.$applicationname$\"}",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "bmHuj5v7z"
+          },
+          "exemplar": false,
+          "expr": "sonar_security_hotspots{key=~\"ASCO.applications.app.$applicationname$\"} ",
+          "instant": true,
           "interval": "",
-          "legendFormat": "security",
+          "legendFormat": "Security Hotspots",
           "refId": "A"
         }
       ],
-      "title": "Security",
+      "title": "Security Hotspots",
       "type": "gauge"
     },
     {
@@ -1000,7 +1207,7 @@
         "h": 4,
         "w": 4,
         "x": 8,
-        "y": 16
+        "y": 23
       },
       "id": 50,
       "options": {
@@ -1024,13 +1231,13 @@
             "uid": "bmHuj5v7z"
           },
           "exemplar": true,
-          "expr": "sonar_security_rating{key=~\"ASCO.applications.app.$applicationname$\"}",
+          "expr": "sonar_new_vulnerabilities{key=~\"ASCO.applications.app.$applicationname$\"} ",
           "interval": "",
-          "legendFormat": "rating",
+          "legendFormat": "vulnerabilities",
           "refId": "A"
         }
       ],
-      "title": "Rating",
+      "title": "Vulnerabilities",
       "type": "gauge"
     },
     {
@@ -1067,7 +1274,7 @@
         "h": 4,
         "w": 4,
         "x": 12,
-        "y": 16
+        "y": 23
       },
       "id": 51,
       "options": {
@@ -1139,7 +1346,7 @@
         "h": 4,
         "w": 4,
         "x": 16,
-        "y": 16
+        "y": 23
       },
       "id": 52,
       "options": {
@@ -1210,7 +1417,7 @@
         "h": 4,
         "w": 4,
         "x": 20,
-        "y": 16
+        "y": 23
       },
       "id": 53,
       "options": {
@@ -1245,7 +1452,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 27
       },
       "id": 26,
       "panels": [],
@@ -1284,9 +1491,9 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 21
+        "y": 28
       },
-      "id": 28,
+      "id": 57,
       "links": [],
       "options": {
         "colorMode": "value",
@@ -1402,7 +1609,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "SucceededBuilds"
+              "options": "Succeeded"
             },
             "properties": [
               {
@@ -1463,6 +1670,30 @@
                 "value": 1
               }
             ]
+          },
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "SucceededBuilds"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              }
+            ]
           }
         ]
       },
@@ -1470,7 +1701,7 @@
         "h": 7,
         "w": 11,
         "x": 6,
-        "y": 21
+        "y": 28
       },
       "id": 34,
       "links": [],
@@ -1489,7 +1720,7 @@
       "pluginVersion": "8.1.6",
       "targets": [
         {
-          "alias": "SucceededBuilds",
+          "alias": "Succeeded",
           "datasource": {
             "type": "cloudwatch",
             "uid": "S02UhS57z"
@@ -1500,7 +1731,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "matchExact": false,
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "SucceededBuilds",
           "metricQueryType": 0,
@@ -1548,7 +1779,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "matchExact": false,
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "Builds",
           "metricQueryType": 0,
@@ -1558,7 +1789,7 @@
           "refId": "C",
           "region": "us-east-1",
           "sqlExpression": "",
-          "statistic": "SampleCount"
+          "statistic": "Sum"
         }
       ],
       "title": "Build Status",
@@ -1658,7 +1889,7 @@
         "h": 7,
         "w": 7,
         "x": 17,
-        "y": 21
+        "y": 28
       },
       "id": 32,
       "links": [],
@@ -1703,12 +1934,277 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-text",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Commit ID"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 154
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ARN(Build Number)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 362
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "id": 65,
+      "links": [],
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Build Status"
+          }
+        ]
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message, @logStream\n| filter @message like \"HEAD is now\"\n| sort @timestamp desc\n| limit 100",
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-build"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "A",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp,@message \n| filter @message like \"HEAD is now\"\n| parse @message \"HEAD is now at * Merge pull request * *\" as id, id2, id3\n| sort @timestamp desc\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-build"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "B",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-build"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "C",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: PRE_BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-build"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "D",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: POST_BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-build"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "E",
+          "region": "us-east-1",
+          "statsGroups": []
+        }
+      ],
+      "title": "Build Associated PRs",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "A · @message": true,
+              "A · __log__grafana_internal__": true,
+              "A · __logstream__grafana_internal__": true,
+              "A · id": true,
+              "A · id2": true,
+              "A · id3": true,
+              "A · id4": true,
+              "A · id6": true,
+              "A · id7": true,
+              "A · id8": true,
+              "B · @message": true,
+              "B · __log__grafana_internal__": true,
+              "B · __logstream__grafana_internal__": true,
+              "B · count(*)": true,
+              "B · id": false,
+              "B · id2": false,
+              "B · id3": true,
+              "B · id4": true,
+              "B · id5": false,
+              "B · id6": true,
+              "B · id7": true,
+              "B · id8": true,
+              "C · @message": true,
+              "C · __log__grafana_internal__": true,
+              "C · __logstream__grafana_internal__": true,
+              "C · id": true,
+              "C · id2": true,
+              "C · id3": true,
+              "C · id4": true,
+              "C · id5": true,
+              "C · id6": true,
+              "C · id7": true,
+              "D · @message": true,
+              "D · __log__grafana_internal__": true,
+              "D · __logstream__grafana_internal__": true,
+              "D · id": true,
+              "D · id2": true,
+              "D · id3": true,
+              "D · id4": true,
+              "D · id5": true,
+              "D · id6": true,
+              "D · id7": true,
+              "E · @message": true,
+              "E · __log__grafana_internal__": true,
+              "E · __logstream__grafana_internal__": true,
+              "E · id": true,
+              "E · id2": true,
+              "E · id3": true,
+              "E · id4": true,
+              "E · id5": true,
+              "E · id6": true,
+              "E · id7": true,
+              "F · count(*)": true,
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "A · @logStream": "ARN(Build Number)",
+              "A · @message": "PR ID",
+              "A · id5": "Commit ID",
+              "A · id9": "Pull Request ID",
+              "B · @message": "",
+              "B · id": "Commit ID",
+              "B · id2": "PR ID",
+              "B · id3": "File Location",
+              "B · id5": "Commit ID",
+              "B · id7": "",
+              "B · id9": "PR ID",
+              "B · pipelineExecutionId": "Build ID",
+              "C · @message": "Build Status",
+              "C · id8": "Build Status",
+              "D · id8": "Pre Build Status",
+              "E · id8": "Post Build Status",
+              "F · pipelineExecutionId": "Build ID"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 28
+        "y": 41
       },
       "id": 40,
       "panels": [],
@@ -1747,7 +2243,7 @@
         "h": 7,
         "w": 6,
         "x": 0,
-        "y": 29
+        "y": 42
       },
       "id": 35,
       "links": [],
@@ -1933,7 +2429,7 @@
         "h": 7,
         "w": 11,
         "x": 6,
-        "y": 29
+        "y": 42
       },
       "id": 56,
       "links": [],
@@ -1963,7 +2459,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "matchExact": false,
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "SucceededBuilds",
           "metricQueryType": 0,
@@ -2011,7 +2507,7 @@
           "expression": "",
           "hide": false,
           "id": "",
-          "matchExact": false,
+          "matchExact": true,
           "metricEditorMode": 0,
           "metricName": "Builds",
           "metricQueryType": 0,
@@ -2090,7 +2586,7 @@
         "h": 7,
         "w": 7,
         "x": 17,
-        "y": 29
+        "y": 42
       },
       "id": 37,
       "links": [],
@@ -2133,9 +2629,644 @@
       ],
       "title": "Duration / Deployment",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-text",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Commit ID"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 154
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ARN(Build Number)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 362
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "id": 67,
+      "links": [],
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Build Status"
+          }
+        ]
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message, @logStream\n| filter @message like \"HEAD is now\"\n| sort @timestamp desc\n| limit 100",
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-live-deploy"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "A",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp,@message \n| filter @message like \"HEAD is now\"\n| parse @message \"HEAD is now at * Merge pull request * *\" as id, id2, id3\n| sort @timestamp desc\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-live-deploy"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "B",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-live-deploy"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "C",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: PRE_BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-live-deploy"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "D",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: POST_BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-live-deploy"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "E",
+          "region": "us-east-1",
+          "statsGroups": []
+        }
+      ],
+      "title": "Build Associated PRs",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "A · @message": true,
+              "A · __log__grafana_internal__": true,
+              "A · __logstream__grafana_internal__": true,
+              "A · id": true,
+              "A · id2": true,
+              "A · id3": true,
+              "A · id4": true,
+              "A · id6": true,
+              "A · id7": true,
+              "A · id8": true,
+              "B · @message": true,
+              "B · __log__grafana_internal__": true,
+              "B · __logstream__grafana_internal__": true,
+              "B · count(*)": true,
+              "B · id": false,
+              "B · id2": false,
+              "B · id3": true,
+              "B · id4": true,
+              "B · id5": false,
+              "B · id6": true,
+              "B · id7": true,
+              "B · id8": true,
+              "C · @message": true,
+              "C · __log__grafana_internal__": true,
+              "C · __logstream__grafana_internal__": true,
+              "C · id": true,
+              "C · id2": true,
+              "C · id3": true,
+              "C · id4": true,
+              "C · id5": true,
+              "C · id6": true,
+              "C · id7": true,
+              "D · @message": true,
+              "D · __log__grafana_internal__": true,
+              "D · __logstream__grafana_internal__": true,
+              "D · id": true,
+              "D · id2": true,
+              "D · id3": true,
+              "D · id4": true,
+              "D · id5": true,
+              "D · id6": true,
+              "D · id7": true,
+              "E · @message": true,
+              "E · __log__grafana_internal__": true,
+              "E · __logstream__grafana_internal__": true,
+              "E · id": true,
+              "E · id2": true,
+              "E · id3": true,
+              "E · id4": true,
+              "E · id5": true,
+              "E · id6": true,
+              "E · id7": true,
+              "F · count(*)": true,
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "A · @logStream": "ARN(Build Number)",
+              "A · @message": "PR ID",
+              "A · id5": "Commit ID",
+              "A · id9": "Pull Request ID",
+              "B · @message": "",
+              "B · id": "Commit ID",
+              "B · id2": "PR ID",
+              "B · id3": "File Location",
+              "B · id5": "Commit ID",
+              "B · id7": "",
+              "B · id9": "PR ID",
+              "B · pipelineExecutionId": "Build ID",
+              "C · @message": "Build Status",
+              "C · id8": "Build Status",
+              "D · id8": "Pre Build Status",
+              "E · id8": "Post Build Status",
+              "F · pipelineExecutionId": "Build ID"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 55
+      },
+      "id": 62,
+      "panels": [],
+      "repeat": "applicationname",
+      "title": "${envi}-${applicationname}-promotion",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 5,
+        "x": 0,
+        "y": 56
+      },
+      "id": 64,
+      "links": [],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 55
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "alias": "Build/Day",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "dimensions": {
+            "ProjectName": "$envi-$applicationname-deploy-promotion"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Builds",
+          "metricQueryType": 0,
+          "namespace": "AWS/CodeBuild",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "us-east-1",
+          "sqlExpression": "",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "Total Promoted",
+      "transformations": [
+        {
+          "id": "reduce",
+          "options": {
+            "reducers": [
+              "sum"
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${envi}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-text",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Commit ID"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-green",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 154
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ARN(Build Number)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 362
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 19,
+        "x": 5,
+        "y": 56
+      },
+      "id": 68,
+      "links": [],
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Build Status"
+          }
+        ]
+      },
+      "pluginVersion": "8.3.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message, @logStream\n| filter @message like \"HEAD is now\"\n| sort @timestamp desc\n| limit 100",
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-promotion"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "A",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp,@message \n| filter @message like \"HEAD is now\"\n| parse @message \"HEAD is now at * Merge pull request * *\" as id, id2, id3\n| sort @timestamp desc\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-promotion"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "B",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-promotion"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "C",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: PRE_BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-promotion"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "D",
+          "region": "us-east-1",
+          "statsGroups": []
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "MLqHOMc7k"
+          },
+          "expression": "fields @timestamp, @message \n| filter @message like \"Phase complete: POST_BUILD State\"\n| parse @message \"* * * * * * * *\" as id, id2, id3, id4, id5, id6, id7, id8\n| limit 10000",
+          "hide": false,
+          "id": "",
+          "logGroupNames": [
+            "/aws/codebuild/$envi-$applicationname-deploy-promotion"
+          ],
+          "namespace": "AWS/CodeBuild",
+          "queryMode": "Logs",
+          "refId": "E",
+          "region": "us-east-1",
+          "statsGroups": []
+        }
+      ],
+      "title": "Build Associated PRs",
+      "transformations": [
+        {
+          "id": "concatenate",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "A · @message": true,
+              "A · __log__grafana_internal__": true,
+              "A · __logstream__grafana_internal__": true,
+              "A · id": true,
+              "A · id2": true,
+              "A · id3": true,
+              "A · id4": true,
+              "A · id6": true,
+              "A · id7": true,
+              "A · id8": true,
+              "B · @message": true,
+              "B · __log__grafana_internal__": true,
+              "B · __logstream__grafana_internal__": true,
+              "B · count(*)": true,
+              "B · id": false,
+              "B · id2": false,
+              "B · id3": true,
+              "B · id4": true,
+              "B · id5": false,
+              "B · id6": true,
+              "B · id7": true,
+              "B · id8": true,
+              "C · @message": true,
+              "C · __log__grafana_internal__": true,
+              "C · __logstream__grafana_internal__": true,
+              "C · id": true,
+              "C · id2": true,
+              "C · id3": true,
+              "C · id4": true,
+              "C · id5": true,
+              "C · id6": true,
+              "C · id7": true,
+              "D · @message": true,
+              "D · __log__grafana_internal__": true,
+              "D · __logstream__grafana_internal__": true,
+              "D · id": true,
+              "D · id2": true,
+              "D · id3": true,
+              "D · id4": true,
+              "D · id5": true,
+              "D · id6": true,
+              "D · id7": true,
+              "E · @message": true,
+              "E · __log__grafana_internal__": true,
+              "E · __logstream__grafana_internal__": true,
+              "E · id": true,
+              "E · id2": true,
+              "E · id3": true,
+              "E · id4": true,
+              "E · id5": true,
+              "E · id6": true,
+              "E · id7": true,
+              "F · count(*)": true,
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {
+              "A · @logStream": "ARN(Build Number)",
+              "A · @message": "PR ID",
+              "A · id5": "Commit ID",
+              "A · id9": "Pull Request ID",
+              "B · @message": "",
+              "B · id": "Commit ID",
+              "B · id2": "PR ID",
+              "B · id3": "File Location",
+              "B · id5": "Commit ID",
+              "B · id7": "",
+              "B · id9": "PR ID",
+              "B · pipelineExecutionId": "Build ID",
+              "C · @message": "Build Status",
+              "C · id8": "Build Status",
+              "D · id8": "Pre Build Status",
+              "E · id8": "Post Build Status",
+              "F · pipelineExecutionId": "Build ID"
+            }
+          }
+        }
+      ],
+      "type": "table"
     }
   ],
-  "refresh": false,
+  "refresh": "",
   "schemaVersion": 33,
   "style": "dark",
   "tags": [],
@@ -2162,9 +3293,9 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": "meeting-program-view",
-          "value": "meeting-program-view"
+          "selected": true,
+          "text": "dashboard",
+          "value": "dashboard"
         },
         "hide": 0,
         "includeAll": false,
@@ -2173,7 +3304,7 @@
         "name": "applicationname",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "dashboard",
             "value": "dashboard"
           },
@@ -2183,7 +3314,7 @@
             "value": "hub"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "meeting-program-view",
             "value": "meeting-program-view"
           },
@@ -2201,7 +3332,7 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-50d",
     "to": "now"
   },
   "timepicker": {
@@ -2223,6 +3354,6 @@
   "timezone": "",
   "title": "ASCO Velocity Dashboard",
   "uid": "8DgQKd27k",
-  "version": 24,
+  "version": 86,
   "weekStart": ""
 }
